@@ -14,6 +14,7 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 // Register
 router.post('/register', (req, res) => {
+  console.log(req.body)
   const { name, email, password, password2 } = req.body;
   let errors = [];
 
@@ -60,20 +61,21 @@ router.post('/register', (req, res) => {
             if (err) throw err;
             newUser.password = hash;
             newUser
-              .save()
-              .then(user => {
-                req.flash(
-                  'success_msg',
-                  'You are now registered and can log in'
-                );
-                res.redirect('/users/login');
-              })
-              .catch(err => console.log(err));
+                .save()
+                .then(user => {
+                  req.flash(
+                      'success_msg',
+                      'You are now registered and can log in'
+                  );
+                  res.redirect('/users/login');
+                })
+                .catch(err => console.log(err));
           });
         });
       }
     });
   }
+
 });
 
 // Login
