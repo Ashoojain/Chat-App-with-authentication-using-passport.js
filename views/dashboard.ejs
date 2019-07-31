@@ -19,7 +19,11 @@
     }
 
     #mario-chat{
+        background-image: url("https://a5.mzstatic.com/us/r30/Purple5/v4/f2/2b/d0/f22bd06f-7a14-e2f9-f455-371f3a074518/screen1136x1136.jpeg");
         max-width: 600px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         margin: 30px auto;
         border: 1px solid #ddd;
         box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
@@ -29,7 +33,11 @@
     #chat-window{
         height: 400px;
         overflow: auto;
-        background: #f9f9f9;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
     }
 
     #output p{
@@ -40,15 +48,18 @@
     }
 
     #feedback p{
-        color: #aaa;
+        color: lightblue;
         padding: 14px 0px;
         margin: 0 20px;
     }
+em {
+    color: white;
+}
+
 
     #output strong{
         color: #575ed8;
     }
-
     label{
         box-sizing: border-box;
         display: block;
@@ -126,7 +137,7 @@
 
     socket.on('chat', function(data){
         feedback.innerHTML = "";
-        output.innerHTML += '<p><strong>' + data.handle + ':</strong> ' + data.message + '</p>';
+        output.innerHTML += '<p><strong>' + data.handle + ':</strong><em> ' + data.message + '</em></p>';
     });
 
     socket.on('typing', function(data){
