@@ -10,6 +10,7 @@
 <style>
     body{
         font-family: 'Nunito';
+
     }
 
     h2{
@@ -101,7 +102,7 @@ em {
         <div id="feedback"></div>
     </div>
 
-    <input id="handle" type="text" placeholder="Handle" />
+    <input id="handle" type="text" placeholder="Your Name" />
     <input id="message" type="text" placeholder="Message" />
     <button id="send">Send</button>
 
@@ -138,6 +139,7 @@ em {
     socket.on('chat', function(data){
         feedback.innerHTML = "";
         output.innerHTML += '<p><strong>' + data.handle + ':</strong><em> ' + data.message + '</em></p>';
+
     });
 
     socket.on('typing', function(data){
